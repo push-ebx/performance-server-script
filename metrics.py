@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 from speedtest import Speedtest
 
-INTERVAL = 1
+INTERVAL = 10
 net_io_start = psutil.net_io_counters()
 time.sleep(INTERVAL)
 net_io_end = psutil.net_io_counters()
