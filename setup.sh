@@ -8,6 +8,7 @@ if [ -f "$SCRIPT_DIR/requirements.txt" ]; then
     echo "Installing Python dependencies..."
     sudo pip3 install -r "$SCRIPT_DIR/requirements.txt"
     /usr/bin/python3 /root/performance-server-script/$SCRIPT_NAME
+    mv metrics.json ..
     nohup python3 -m http.server 8888 --directory /root > /var/log/http_server.log 2>&1 &
 else
     echo "No requirements.txt found. Skipping Python dependencies installation."
