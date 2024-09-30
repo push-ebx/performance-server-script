@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 SCRIPT_NAME="metrics.py"
-CRON_JOB="* * * * * /usr/bin/python3 /root/performance-server-script/$SCRIPT_NAME >> /var/log/metrics.log 2>&1"
+CRON_JOB="0 * * * * /usr/bin/python3 /root/performance-server-script/$SCRIPT_NAME >> /var/log/metrics.log 2>&1"
 
 if [ -f "$SCRIPT_DIR/requirements.txt" ]; then
     echo "Installing Python dependencies..."
