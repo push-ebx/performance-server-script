@@ -2,7 +2,7 @@ import json
 import psutil
 import time
 from datetime import datetime
-from speedtest import Speedtest
+# from speedtest import Speedtest
 
 INTERVAL = 10
 net_io_start = psutil.net_io_counters()
@@ -15,10 +15,10 @@ tx_bytes_per_sec = (net_io_end.bytes_sent - net_io_start.bytes_sent) / INTERVAL
 rx_kb_per_sec = round(rx_bytes_per_sec / 1024, 2)
 tx_kb_per_sec = round(tx_bytes_per_sec / 1024, 2)
 
-speed_test = Speedtest()
-speed_test.get_best_server()
-download_speed = round(speed_test.download() / (1024 * 1024), 2)
-upload_speed = round(speed_test.upload() / (1024 * 1024), 2)
+# speed_test = Speedtest()
+# speed_test.get_best_server()
+# download_speed = round(speed_test.download() / (1024 * 1024), 2)
+# upload_speed = round(speed_test.upload() / (1024 * 1024), 2)
 
 metrics = {
     "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -27,11 +27,11 @@ metrics = {
     "network": {
         "rx_kb_per_sec": rx_kb_per_sec,
         "tx_kb_per_sec": tx_kb_per_sec
-    },
-    "internet_speed": {
-        "download_mbps": download_speed,
-        "upload_mbps": upload_speed
     }
+#     "internet_speed": {
+#         "download_mbps": download_speed,
+#         "upload_mbps": upload_speed
+#     }
 }
 
 try:
